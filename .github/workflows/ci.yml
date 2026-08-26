@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The scripts are pure curl; node only runs the mock API the tests use.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: ./test.sh
