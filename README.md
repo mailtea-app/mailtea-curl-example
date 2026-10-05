@@ -59,7 +59,7 @@ curl -X POST https://api.mailtea.app/v1/emails \
 ```
 
 `to` takes a string or an array. `cc`, `bcc`, `reply_to`, `headers`, and
-`attachments` are all optional — but SES caps a single message at **50
+`attachments` are all optional, but a single message is capped at **50
 recipients combined** across `to` + `cc` + `bcc`.
 
 ### Schedule an email
@@ -181,8 +181,8 @@ id=$(./scripts/send.sh | jq -r .id)
 ./scripts/get.sh "$id" | jq .last_event
 ```
 
-Set `MAILTEA_API_BASE_URL` to point them at a self-hosted Mailtea or a local
-dev API; unset, they use `https://api.mailtea.app`.
+The scripts use `https://api.mailtea.app` unless the optional
+`MAILTEA_API_BASE_URL` overrides it.
 
 ## What this example covers
 

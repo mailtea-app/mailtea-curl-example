@@ -13,7 +13,7 @@ set -euo pipefail
 : "${MAILTEA_FROM:?Set MAILTEA_FROM to a verified sending identity}"
 : "${MAILTEA_TO:?Set MAILTEA_TO to a recipient address}"
 
-# MAILTEA_API_BASE_URL only matters for local dev or a self-hosted Mailtea.
+# MAILTEA_API_BASE_URL is an optional override of the API host.
 BASE_URL="${MAILTEA_API_BASE_URL:-https://api.mailtea.app}"
 SUBJECT="${MAILTEA_SUBJECT:-Hello from curl}"
 
